@@ -1,0 +1,19 @@
+{
+  "name": "aws-site-deployment",
+  "version": "1.0.0",
+  "description": "Package helps to deploy your website in aws",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Manoj-14/aws-site-deployment.git"
+  },
+  "author": "Manoj M",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Manoj-14/aws-site-deployment/issues"
+  },
+  "homepage": "https://github.com/Manoj-14/aws-site-deployment#readme"
+}
