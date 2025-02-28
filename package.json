@@ -6,6 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies": {
+    "@aws-sdk/client-ec2": "^3.741.0",
+    "aws-sdk": "^2.1692.0",
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
+    "ssh2": "^1.16.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Manoj-14/aws-site-deployment.git"
