@@ -1,0 +1,22 @@
+[
+    {
+        "question": "PLease enter the deployment type:",
+        "storingVariable": "DEPLOYMENT_TYPE"
+    },
+    {
+        "question": "Please provide the aws access key id:",
+        "storingVariable": "AWS_ACCESS_KEY_ID"
+    },
+    {
+        "question": "Please provide the aws secret access key id:",
+        "storingVariable": "AWS_SECRET_ACCESS_KEY"
+    },
+    {
+        "question": "Please provide the username of account:",
+        "storingVariable": "AWS_USERNAME"
+    },
+    {
+        "question": "Please provide the region:",
+        "storingVariable": "AWS_REGION"
+    }
+]
