@@ -1,9 +1,9 @@
-const { PermissionError } = require("../errors/errors");
-const permissions = require("../data/permission-policies.json");
+const { PermissionError } = require("../../errors/errors");
+const permissions = require("../../data/permission-policies.json");
 const { iamClient } = require("../config-clients/aws-config-client");
 const { ListAttachedUserPoliciesCommand } = require("@aws-sdk/client-iam");
-const { Step } = require("../bin/step");
-const { logWithColor } = require("../utils/console-text-color");
+const { Step } = require("../../bin/step");
+const { logWithColor } = require("../../utils/console-text-color");
 require("dotenv").config();
 
 const checkAccessOf = (deploymentType) => {
@@ -47,10 +47,14 @@ const IAMPolicyVerificationStep = async () => {
         getPoliciesAttached(iamClient, username),
         checkAccessOf(deploymentType)
     ])
-    return getPolicyComparision(userAccessPolicies);
+    const isAllPermissionGranted = getPolicyComparision(userAccessPolicies);
+    if (!isAllPermissionGranted) {
+        const permissionError = new PermissionError("Some permissions are not granted please check the logs");
+        throw permissionError;
+    };
 }
 
 const IAMPolicyCheckerStep = new Step("Iam Policy Checker", IAMPolicyVerificationStep);
-IAMPolicyCheckerStep.execute();
+// IAMPolicyCheckerStep.execute();
 
 module.exports = { IAMPolicyCheckerStep }

@@ -4,7 +4,8 @@
   "description": "Package helps to deploy your website in aws",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node ./src/index.js"
   },
   "dependencies": {
     "@aws-sdk/client-ec2": "^3.741.0",

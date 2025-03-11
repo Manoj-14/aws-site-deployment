@@ -1,9 +1,9 @@
 const readline = require("readline");
-const questions = require("../data/questions.json");
+const questions = require("../../data/questions.json");
 const fs = require("fs/promises");
 const { appendFileSync } = require("fs")
-const { RollbackError, ProcessExecutionError, FileHandlingError } = require("../errors/errors");
-const { Step } = require("../bin/step");
+const { RollbackError, ProcessExecutionError, FileHandlingError } = require("../../errors/errors");
+const { Step } = require("../../bin/step");
 
 
 
@@ -47,7 +47,7 @@ const askQuestions = async () => {
 
 const writeEnvFile = (key, value) => {
     try {
-        appendFileSync("./.env", `\n${key}=${value}`);
+        appendFileSync("../.env", `\n${key}=${value}`);
     } catch {
         throw new FileHandlingError("Error in updating .env file");
     }

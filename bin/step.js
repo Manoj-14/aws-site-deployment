@@ -11,7 +11,7 @@ class Step {
 
     execute = async () => {
         try {
-            logWithColor(`${this.name}: Executing....`, 'yellow')
+            logWithColor(`${this.name}: Executing...`, 'yellow')
             await this.executorFunction();
             logWithColor(`${this.name}: Completed!`, "green")
         } catch (error) {
@@ -20,13 +20,16 @@ class Step {
     }
 
     rollback = async () => {
+        logWithColor(`${this.name}: Rolling back...`, "yellow")
         if (this.isRollbackneeded) {
             try {
                 await this.rollbackfunction();
+                logWithColor(`${this.name}: Rollback Success`, "green")
             } catch (error) {
                 throw new RollbackError(`Error in rolling back step ${this.name}`);
             }
-
+        } else {
+            logWithColor(`${this.name}: Rollback Success (No rollback needed)`, "green")
         }
     }
 }
