@@ -4,6 +4,7 @@ const fs = require("fs/promises");
 const { appendFileSync } = require("fs")
 const { RollbackError, ProcessExecutionError, FileHandlingError } = require("../../errors/errors");
 const { Step } = require("../../bin/step");
+const { writeEnvFile } = require("../../utils/utils");
 
 
 
@@ -45,14 +46,7 @@ const askQuestions = async () => {
     }
 }
 
-const writeEnvFile = (key, value) => {
-    try {
-        appendFileSync("../.env", `\n${key}=${value}`);
-    } catch {
-        throw new FileHandlingError("Error in updating .env file");
-    }
 
-}
 
 const rollBackAskQuestionProcess = async () => {
     try {

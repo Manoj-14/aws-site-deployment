@@ -1,6 +1,7 @@
 require("dotenv").config();
 const { EC2Client } = require("@aws-sdk/client-ec2")
-const { IAMClient } = require("@aws-sdk/client-iam")
+const { IAMClient } = require("@aws-sdk/client-iam");
+const { S3Client } = require("@aws-sdk/client-s3");
 
 const awsConfig = {
     region: process.env.AWS_REGION,
@@ -12,4 +13,5 @@ const awsConfig = {
 
 const ec2Client = new EC2Client(awsConfig);
 const iamClient = new IAMClient(awsConfig);
-module.exports = { ec2Client, iamClient };
+const s3Client = new S3Client(awsConfig);
+module.exports = { ec2Client, iamClient, s3Client };

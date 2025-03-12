@@ -27,5 +27,14 @@ module.exports = {
             }
             return false;
         }, interval);
+    },
+    writeEnvFile: (key, value) => {
+        try {
+            appendFileSync(".env", `\n${key}=${value}`);
+        } catch {
+            throw new FileHandlingError("Error in updating .env file");
+        }
+
     }
 }
+
